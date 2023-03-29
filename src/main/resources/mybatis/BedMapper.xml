@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dgut.mapper.BedMapper">
+    <select id="bedPeople" resultType="Integer" parameterType="String">
+        select count(b_id) from bed where b_start = #{b_start}
+    </select>
+
+
+</mapper>

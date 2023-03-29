@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dgut.mapper.DoctorMapper">
+    <select id="findDoctorBySection" resultType="com.dgut.pojo.Doctor" parameterType="String">
+        select d_id,d_name,d_gender,d_post,d_section,d_introduction,d_price,d_avg_star from doctor where d_section=#{d_section} and d_state=1
+    </select>
+    <update id="updateStar">
+        update doctor set d_people = d_people+1,d_star = d_star+#{dStar},d_avg_star=d_star/d_people where d_id = #{dId}
+    </update>
+
+
+</mapper>

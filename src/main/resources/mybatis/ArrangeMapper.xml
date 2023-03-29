@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dgut.mapper.ArrangeMapper">
+    <!--定义封装account和user的resultMap-->
+    <resultMap id="arrangeDoctorMap" type="com.dgut.pojo.Arrange">
+        <id property="arId" column="ar_id" />
+        <result property="arTime" column="ar_time" />
+        <result property="dId" column="d_id" />
+        <!--一对一的关系映射，配置封装user的内容 column中指名从表的外键 property="user"指的是单个实体类的引用-->
+        <association property="doctor" javaType="com.dgut.pojo.Doctor">
+            <result property="dId" column="d_id" />
+            <result property="dName" column="d_name"/>
+            <result property="dGender" column="d_gender"/>
+            <result property="dPost" column="d_post"/>
+            <result property="dIntroduction" column="d_introduction"/>
+            <result property="dSection" column="d_section"/>
+            <result property="dPrice" column="d_price"/>
+            <result property="dAvgStar" column="d_avg_star"/>
+        </association>
+    </resultMap>
+
+    <!--IAccountDao的查询所有-->
+    <select id="findByTime" resultMap="arrangeDoctorMap">
+        select * from doctor d,arrange a where d.d_id=a.d_id and a.ar_time=#{ar_time} and d.d_section=#{d_section}
+    </select>
+<!--传入多个参数-->
+<!--    1. 不需要parameterType参数-->
+<!--    2. mapper文件用注解@Param注解参数名-->
+<!--    3. xml文件要使用2中的参数名-->
+
+</mapper>
