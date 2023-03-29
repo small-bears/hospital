@@ -9,9 +9,8 @@
 ## 二、视频演示
     
     
-
 <p style="text-align: center;"><strong><span class="ne-text">建议点击这个</span><a style="color: #ff0000;" href="https://www.bilibili.com/video/BV1uk4y1i7tP/?spm_id_from=333.999.0.0&vd_source=b5789de9f485ad6d0cfaeca1ad4b230c">“链接”</a>查看高清视频</strong></p>
-## 三、项目技术
+## 三、 项目技术
 后端： SpringBoot+Mybatis
 
 前端：Vue + Vue Router + ELementUI + Axios
